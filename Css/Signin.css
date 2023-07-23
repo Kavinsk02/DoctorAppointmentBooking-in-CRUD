@@ -1,0 +1,54 @@
+﻿/* Style for the form */
+.form-horizontal {
+    background-color: #808080;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    max-width: 500px; /* Set the desired width */
+    margin: 3px auto;
+    margin-bottom: 20px; /* Center the form horizontally */
+}
+
+
+
+/* Style for the labels */
+label.control-label {
+    font-weight: bold;
+}
+
+/* Style for the inputs */
+input.form-control, select.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+/* Style for the submit button */
+input[type="submit"].btn-default {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for the error message */
+.alert.alert-danger {
+    color: #f00;
+    background-color: #d9534f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style for the link */
+a {
+    color: darkgreen;
+}
+
+/* Style for the paragraph */
+p {
+    color: red;
+}

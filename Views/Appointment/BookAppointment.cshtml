@@ -1,0 +1,57 @@
+﻿@model WebApplication13.Models.Appointment
+
+@{
+    ViewBag.Title = "BookAppointment";
+    Layout = "~/Views/Shared/Patient_LayoutPage.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Css/Booking.css" rel="stylesheet" />
+</head>
+<body>
+
+    @using (Html.BeginForm("BookAppointment", "Appointment", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.DoctorID)
+        @Html.HiddenFor(m => m.Doctorname)
+        @Html.HiddenFor(m => m.PatientId)
+        @Html.HiddenFor(m => m.Username)
+
+        <div>
+            <label for="patientName">Patient Name:</label>
+            @Html.TextBoxFor(m => m.Fullname, new { id = "patientName" })
+            @Html.ValidationMessageFor(m => m.Fullname)
+        </div>
+
+        <div>
+            <label for="appointmentDate">Appointment Date:</label>
+            @Html.TextBoxFor(m => m.AppointmentDate, new { id = "appointmentDate", type = "date" })
+            @Html.ValidationMessageFor(m => m.AppointmentDate)
+        </div>
+
+        <div>
+            <label for="appointmentTime">Appointment Time:</label>
+            @Html.TextBoxFor(m => m.AppointmentTime, new { id = "appointmentTime", type = "time" })
+            @Html.ValidationMessageFor(m => m.AppointmentTime)
+        </div>
+
+
+        <input type="submit" value="Book Appointment" />
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <script>
+        $(document).ready(function () {
+            var errorMessage = '@TempData["ErrorMessage"]';
+            alert(errorMessage);
+        });
+        </script>
+    }
+
+</body>
+
+</html>
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebApplication13.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Patient_LayoutPage.cshtml";
+}
+
+
+
+<h2>Search Doctors by Specialization</h2>
+
+@using (Html.BeginForm("Index", "Doctor", FormMethod.Post))
+{
+    <label for="specialization">Specialization:</label>
+    @Html.TextBox("specialization")
+    <input type="submit" value="Search" />
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3>Doctors Specializing in @ViewBag.Specialization</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Specialization</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doctor in Model)
+            {
+                <tr>
+                    <td>@doctor.DoctorID</td>
+                    <td>@doctor.Doctorname</td>
+                    <td>@doctor.Specialization</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

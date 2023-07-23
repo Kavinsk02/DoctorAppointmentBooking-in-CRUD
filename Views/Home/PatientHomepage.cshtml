@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Patient_LayoutPage.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+
+    .welcome-message {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    .content-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+    }
+
+    .content-heading {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 10px;
+    }
+
+    .content-paragraph {
+        color: #666666;
+        line-height: 1.5;
+    }
+
+    .live-content-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .live-content-iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+    }
+</style>
+
+<div class="welcome-message">
+    <h1>Welcome, Patient!</h1>
+</div>
+
+<div class="content-container">
+    <h2 class="content-heading">Upcoming Appointments</h2>
+    <p class="content-paragraph">You have upcoming appointments scheduled with the following doctors:</p>
+    <!-- Add your upcoming appointment information here -->
+</div>
+
+<div class="content-container">
+    <h2 class="content-heading">Live News</h2>
+    <div class="live-content-container">
+        <iframe class="live-content-iframe" src="https://www.example.com/live-news-feed" allowfullscreen></iframe>
+    </div>
+</div>

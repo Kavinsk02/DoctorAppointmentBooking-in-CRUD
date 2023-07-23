@@ -1,0 +1,125 @@
+﻿@model WebApplication13.Models.Doctor
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Main_Layout.cshtml";
+}
+<!-- Include SweetAlert CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css" rel="stylesheet" />
+
+<link href="~/Css/Signupstyle.css" rel="stylesheet" />
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Doctor</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorID, htmlAttributes: new
+        {
+            @class = "control-label col-md-2"
+        })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DoctorID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DoctorID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Doctorname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Doctorname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Doctorname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phonenumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Phonenumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Phonenumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+
+            @Html.DropDownListFor(model => model.Specialization, GetSpecializationList(), "Select Specialization", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Signup" onclick="submitForm()" />
+
+        </div>
+    </div>
+    @functions
+        {
+        public List<SelectListItem> GetSpecializationList()
+        {
+            return new List<SelectListItem>
+                            {
+
+                    new SelectListItem { Text = "Cardiologist", Value = "Cardiologist" },
+                    new SelectListItem { Text = "General Checkuplist", Value = "General Checkuplist" },
+                    new SelectListItem { Text = "Neurologist", Value = "Neurologist" },
+                    new SelectListItem { Text = "Orthopedic Surgeon", Value = "Orthopedic Surgeon" },
+                    new SelectListItem { Text = "Dermatologist", Value = "Dermatologist" },
+                    new SelectListItem { Text = "Otolaryngologist (ENT Specialist)", Value = "Otolaryngologist (ENT Specialist)" },
+                    new SelectListItem { Text = "Urologist", Value = "Urologist" },
+                    new SelectListItem { Text = "Psychiatrist", Value = "Psychiatrist" },
+                    new SelectListItem { Text = "Ophthalmologist", Value = "Ophthalmologist" }
+
+
+                };
+        }
+    }
+
+
+    <!-- Include SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+
+    <script>
+        function submitForm() {
+            // Perform form submission
+            document.forms[0].submit();
+
+            // Show success message
+            Swal.fire({
+                title: "Success!",
+                text: "Appointment has been booked successfully.",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
+        }
+    </script>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

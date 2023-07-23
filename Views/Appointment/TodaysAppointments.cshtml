@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApplication13.Models.Appointment>
+@{
+    ViewBag.Title = "TodaysAppointments";
+    Layout = "~/Views/Shared/Doctor_LayoutPage.cshtml";
+}
+
+<h2>Today's Appointments</h2>
+
+<link href="~/Css/doctorviewapp.css" rel="stylesheet" />
+
+@if (Model.Any())
+{
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentTime)
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                ActionLink
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentTime)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink("Appointments", "Appointments", "Appointment", new { App_id =item.AppID }, null)
+                </td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No appointments scheduled for today.</p>
+}

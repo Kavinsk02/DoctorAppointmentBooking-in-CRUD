@@ -1,0 +1,16 @@
+﻿@model WebApplication13.Models.AppointmentConfirmation
+
+@{
+    ViewBag.Title = "AppointmentConfirmation";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h3>Appointment Booked Successfully!</h3>
+<p>Thank you, @Model.Username, for booking the appointment.</p>
+<p>Patient ID: @Model.PatientId</p>
+<p>Doctor ID: @Model.DoctorID</p>
+<p>Doctor Name: @Model.Doctorname</p>
+<p>Patient Name: @Model.Fullname</p>
+
+<p>Specialization: @Model.Specialization</p>
+<p>Appointment Date: @Model.AppointmentDate.ToShortDateString()</p>

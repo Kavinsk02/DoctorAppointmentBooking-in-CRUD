@@ -1,0 +1,39 @@
+﻿@model List<WebApplication13.Models.Doctor>
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<link href="~/Css/search.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="specialization">Specialization:</label>
+        @Html.TextBox("specialization")
+
+        <input type="submit" value="Search" />
+    </div>
+}
+@if (Model != null)
+{
+    <h2>Doctors</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Action</th> <!-- Added column for the button -->
+        </tr>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.DoctorID</td>
+                <td>@doctor.Doctorname</td>
+                <td>@doctor.Specialization</td>
+                <td>
+                    <!-- Book Appointment button -->
+                    @Html.ActionLink("Book Appointment", "AdminBookAppointment", "Appointment", new { doctorId = doctor.DoctorID, doctorname = doctor.Doctorname }, null)
+                </td>
+            </tr>
+        }
+    </table>
+}

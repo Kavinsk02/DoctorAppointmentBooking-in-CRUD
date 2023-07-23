@@ -1,0 +1,38 @@
+﻿@model List<WebApplication13.Models.Appointment>
+@{
+    ViewBag.Title = "GetAppointments";
+    Layout = "~/Views/Shared/Doctor_LayoutPage.cshtml";
+}
+
+<h2>Today's Appointments</h2>
+
+<link href="~/Css/doctorviewapp.css" rel="stylesheet" />
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <tr>
+
+
+            <th>DoctorID</th>
+            <th>PatientId</th>
+            <th>Username</th>
+            <th>Patient Name</th>
+            <th>Appointment Date</th>
+        </tr>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+
+                <td>@appointment.DoctorID</td>
+                <td>@appointment.PatientId</td>
+                <td>@appointment.Username</td>
+                <td>@appointment.Fullname</td>
+                <td>@appointment.AppointmentDate</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No appointments found for today.</p>
+}

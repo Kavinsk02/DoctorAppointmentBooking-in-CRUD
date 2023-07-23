@@ -1,0 +1,41 @@
+﻿/* Add background color to the table header */
+table th {
+    background-color: #0d3647;
+    padding: 10px;
+}
+
+/* Add border to the table cells */
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Apply font styles to the table */
+table {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+    /* Adjust table size */
+    table.table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+    }
+
+/* Add padding to the table */
+.table {
+    padding: 10px;
+}
+
+    /* Add alternate background color to table rows */
+    .table tr:nth-child(even) {
+        background-color: #808080;
+    }
+
+    /* Add hover effect to table rows */
+    .table tr:hover {
+        background-color: #e9ecef;
+        cursor: pointer;
+    }

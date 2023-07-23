@@ -1,0 +1,73 @@
+﻿body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+dl {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+dt {
+    font-weight: bold;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background-color: #0069d9;
+    }
+
+.btn-default {
+    background-color: #eaeaea;
+    color: #333;
+}
+
+    .btn-default:hover {
+        background-color: #ccc;
+    }

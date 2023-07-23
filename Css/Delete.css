@@ -1,0 +1,19 @@
+﻿.dl-horizontal dt {
+    font-weight: bold;
+}
+
+.dl-horizontal dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+/* Styles for td and dd elements */
+dt, dd {
+    border: 4px solid #ccc;
+    padding: 5px;
+}
+
+/* Background color for td and dd elements */
+dt, dd {
+    background-color: #808080;
+}

@@ -1,0 +1,138 @@
+﻿@model List<WebApplication13.Models.Appointment>
+@{
+    ViewBag.Title = "ViewPatientappointment";
+    Layout = "~/Views/Shared/Patient_LayoutPage.cshtml";
+}
+
+
+<h2>Appointments</h2>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        table {
+            width: 75%;
+            border-collapse: collapse;
+            border: 3px solid #000;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #000;
+        }
+
+        th {
+            background-color: #808080;
+            font-weight: bold;
+        }
+
+        .confirmed {
+            color: green;
+        }
+
+        .canceled {
+            color: red;
+        }
+
+        .pending {
+            color: orange;
+        }
+    </style>
+
+</head>
+<body background-color:lightblue>
+
+    @if (Model.Count > 0)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>DoctorID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model)
+                {
+                    <tr>
+                        <td>@appointment.DoctorID</td>
+                        <td>@appointment.AppointmentDate.ToShortDateString()</td>
+                        <td>@appointment.AppointmentTime.ToString()</td>
+                        <td>
+                            @if (appointment.Status == "Confirmed")
+                            {
+                                <span class="confirmed">Confirmed</span>
+                            }
+                            else if (appointment.Status == "Canceled")
+                            {
+                                <span class="canceled">Canceled</span>
+                            }
+                            else
+                            {
+                                <span class="pending">Pending</span>
+                            }
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No appointments found.</p>
+    }
+
+
+
+
+    <script>
+        function confirmAppointment(appointmentId) {
+            $.ajax({
+                url: "/Appointments/Confirm",
+                type: "POST",
+                data: { appointmentId: appointmentId },
+                success: function (result) {
+                    if (result.success) {
+                        alert("Appointment confirmed successfully.");
+                        // Perform any additional actions or UI updates here
+                    } else {
+                        alert("Failed to confirm appointment. Please try again.");
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while confirming the appointment. Please try again later.");
+                }
+            });
+        }
+
+        function cancelAppointment(appointmentId) {
+            $.ajax({
+                url: "/Appointments/Cancel",
+                type: "POST",
+                data: { appointmentId: appointmentId },
+                success: function (result) {
+                    if (result.success) {
+                        alert("Appointment canceled successfully.");
+                        // Perform any additional actions or UI updates here
+                    } else {
+                        alert("Failed to cancel appointment. Please try again.");
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while canceling the appointment. Please try again later.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,15 @@
+﻿
+@model WebApplication13.Models.AppointmentViewModel
+@{
+    ViewBag.Title = "ConfirmAppointment";
+    Layout = "~/Views/Shared/Doctor_LayoutPage.cshtml";
+}
+
+<h2>ConfirmAppointment</h2>
+
+
+<h3>Appointment Confirmation Status</h3>
+<p>Patient Name: @Model.Fullname</p>
+<p>Appointment Date: @Model.AppointmentDate</p>
+<p>Appointment Time: @Model.AppointmentTime</p>
+<p>Confirmation Status: @((Model.IsConfirmed) ? "Confirmed" : "Not Confirmed")</p>

@@ -1,0 +1,91 @@
+﻿@model WebApplication13.Models.Doctor
+
+@{
+    ViewBag.Title = "AdminCreate";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<link href="~/Css/Createpage.css" rel="stylesheet" />
+<h2>AdminCreate</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Doctor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Doctorname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Doctorname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Doctorname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phonenumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phonenumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phonenumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+
+                @Html.DropDownListFor(model => model.Specialization, GetSpecializationList(), "Select Specialization", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+        @functions
+        {
+            public List<SelectListItem> GetSpecializationList()
+            {
+                return new List<SelectListItem>
+                            {
+
+                    new SelectListItem { Text = "Cardiologist", Value = "Cardiologist" },
+                    new SelectListItem { Text = "General Checkuplist", Value = "General Checkuplist" },
+                    new SelectListItem { Text = "Neurologist", Value = "Neurologist" },
+                    new SelectListItem { Text = "Orthopedic Surgeon", Value = "Orthopedic Surgeon" },
+                    new SelectListItem { Text = "Dermatologist", Value = "Dermatologist" },
+                    new SelectListItem { Text = "Otolaryngologist (ENT Specialist)", Value = "Otolaryngologist (ENT Specialist)" },
+                    new SelectListItem { Text = "Urologist", Value = "Urologist" },
+                    new SelectListItem { Text = "Psychiatrist", Value = "Psychiatrist" },
+                    new SelectListItem { Text = "Ophthalmologist", Value = "Ophthalmologist" }
+
+
+                };
+            }
+        }
+
+        <script src="~/Scripts/Indesxjs/AdfminDoctor.js"></script>
+    </div>
+}
+
+
+

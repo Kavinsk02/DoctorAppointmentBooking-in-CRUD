@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebApplication13.Models.Appointment>
+@{
+    ViewBag.Title = "Appointments";
+    Layout = "~/Views/Shared/Doctor_LayoutPage.cshtml";
+}
+
+
+@foreach (var appointment in Model)
+{
+    <div>
+        <p>Patient Name: @appointment.Fullname</p>
+        <p>Appointment Date: @appointment.AppointmentDate</p>
+        <p>Appointment Time: @appointment.AppointmentTime</p>
+        @if (!appointment.IsConfirmed)
+        {
+            <a href="@Url.Action("ConfirmAppointment", new { appointmentId = appointment.AppID })">Confirm</a>
+        }
+    </div>
+}

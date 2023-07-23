@@ -1,0 +1,51 @@
+﻿@model WebApplication13.Models.AppointmentConfirmation
+
+@{
+    ViewBag.Title = "AppointmentConfirmation";
+    Layout = "~/Views/Shared/Patient_LayoutPage.cshtml";
+}
+<style>
+    h3 {
+        background-color: #138395;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    p {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+
+<h3>Appointment Booked Successfully!</h3>
+
+<p>Thank you, @Model.Username, for booking the appointment.</p>
+
+<div>
+    <strong>PatientId:</strong> @Model.PatientId
+</div>
+
+<div>
+    <strong>DoctorID:</strong> @Model.DoctorID
+</div>
+
+<div>
+    <strong>Doctorname:</strong> @Model.Doctorname
+</div>
+<div>
+    <strong>Specialization:</strong> @Model.Specialization
+</div>
+<div>
+    <strong>Patientname:</strong> @Model.Fullname
+</div>
+<div>
+    <strong>Appointment Date:</strong> @Model.AppointmentDate.ToShortDateString()
+</div>
+<div>
+    <strong>Appointment Time:</strong> @Model.AppointmentTime.ToString("hh\\:mm")
+</div>

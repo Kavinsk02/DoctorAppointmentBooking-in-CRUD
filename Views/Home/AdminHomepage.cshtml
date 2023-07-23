@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Admin Dashboard</h2>
+
+<div>
+    <p>Number of Registered Users: <span id="userCount"></span></p>
+    <p>Number of Doctors: <span id="doctorCount"></span></p>
+    <p>Number of Appointments: <span id="appointmentCount"></span></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function getUserCount() {
+            $.ajax({
+                url: '@Url.Action("GetUserCount", "Admin")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $('#userCount').text(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                }
+            });
+        }
+
+        function getDoctorCount() {
+            $.ajax({
+                url: '@Url.Action("GetDoctorCount", "Admin")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $('#doctorCount').text(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                }
+            });
+        }
+
+        function getAppointmentCount() {
+            $.ajax({
+                url: '@Url.Action("GetAppointmentCount", "Admin")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $('#appointmentCount').text(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                }
+            });
+        }
+
+        // Initial calls to get the counts
+        getUserCount();
+        getDoctorCount();
+        getAppointmentCount();
+
+        // Refresh the counts every 5 seconds
+        setInterval(getUserCount, 5000);
+        setInterval(getDoctorCount, 5000);
+        setInterval(getAppointmentCount, 5000);
+    });
+</script>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Patientpage</title>
+    <meta charset="utf-8 ">
+    <meta name="viewport" content="width=device-width" ,initial-scale="1.0" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Css/footer.css" rel="stylesheet" />
+    <link href="~/Css/Adminstyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav>
+        <a href="#" class="navbar-brand">
+
+            <img src="~/Images/download.jpg" class="logo" />
+        </a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">User details</a>
+                <ul>
+                    <li><a href="/Signup/Edit/@Session["PatientId"]">Edit</a></li>
+                    <li><a href="/Signup/Delete/@Session["PatientId"]">Delete</a></li>
+                   
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="/Appointment/Search">Book appointment</a>
+                <ul>
+                    <li><a href="@Url.Action("Search", "Appointment", new { PatientId = Session["PatientId"] })">New Appointments</a></li>
+                    <li><a href="@Url.Action("ViewPatientappointment", "Appointment", new { PatientId = Session["PatientId"] })"> View Appointments</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav" style="float:right !important">
+            @if (Session["Username"] != null && Session["PatientId"]!=null)
+            {
+                <li><p style="color:black;font-weight:bold;">Hello @Session["Username"]</p></li>
+                <li><p style="color:orangered;margin-top:1px;">@Html.ActionLink("Signout", "Index", "Home")</p></li>
+            }
+
+
+        </ul>
+    </nav>
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Hospital Appointment booking</h3>
+            <p> Take Care of the Patients and Everything else will follow !</p>
+            <ul class="socials">
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" style="color: #4267B2;"></i>Facebook</a></li>
+                <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter-square" style="color: #1DA1F2;"></i>Twitter</a></li>
+                <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google" style="color: #EA4335;"></i>Google</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram" style="color: #808080;">Instagram</i></a></li>
+                <li><a href="https://in.linkedin.com/" target="_blank"><i class="fa fa-linkedin" style="color: #0A66C2;">Linkedin</i></a></li>
+                <li><a href="https://github.com/" target="_blank"><i class="fa fa-github" style="color: #171515;"></i>Github</a></li>
+
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights &copy; 2023 Hospital Appointment booking. designed by<span>mr.x</span></p>
+        </div>
+    </footer>
+
+
+    <div>
+      
+        @RenderBody()
+    </div>
+</body>
+</html>

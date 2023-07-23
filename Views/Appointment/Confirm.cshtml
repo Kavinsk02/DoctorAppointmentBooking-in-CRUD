@@ -1,0 +1,21 @@
+﻿@model List<WebApplication13.Models.Appointment>
+
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/Doctor_LayoutPage.cshtml";
+}
+
+@foreach (var appointment in Model)
+{
+    <div>
+        <span>Patient Name: @appointment.Fullname</span>
+        <span>Appointment Date: @appointment.AppointmentDate</span>
+        <span>Confirmation Status: @appointment.IsConfirmed</span>
+
+        @if (!appointment.IsConfirmed)
+        {
+            @Html.ActionLink("Confirm ", "Confirm", new { appointmentId = appointment.AppID })
+        }
+    </div>
+}
+

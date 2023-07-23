@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Main_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .welcome-text {
+
+            font-size: 36px;
+            text-align: center;
+            margin-top: 100px;
+            font-weight: bold;
+            color: #3366cc; /* Set the desired color value */
+            text-transform: uppercase; /* Set the desired text transformation */
+            text-shadow: 2px 2px 5px #000, -2px -2px 5px #000, 2px -2px 5px #000, -2px 2px 5px #000; 
+            margin-bottom: 20px;
+            padding: 10px;
+           
+        }
+
+        .clock {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+            .clock span.hours {
+                color: red;
+            }
+
+            .clock span.minutes {
+                color: yellow;
+            }
+
+            .clock span.seconds {
+                color: green;
+            }
+    </style>
+</head>
+<body>
+    <h1 class="welcome-text">Welcome to Doctor Apppointment Booking</h1>
+
+    <div class="clock" id="clock"></div>
+
+    <script src="~/Scripts/Indesxjs/Home.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,54 @@
+﻿@model WebApplication13.Models.Appointment
+
+@{
+    ViewBag.Title = "BookAppointment";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<link href="~/Css/Booking.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Css/Booking.css" rel="stylesheet" />
+</head>
+<body>
+
+    @using (Html.BeginForm("AdminBookAppointment", "Appointment", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.DoctorID)
+        @Html.HiddenFor(m => m.Doctorname)
+
+        <div>
+            <label for="patientName">Patient ID:</label>
+            @Html.TextBoxFor(m => m.PatientId, new { id = "patientName" })
+            @Html.ValidationMessageFor(m => m.PatientId)
+        </div>
+        <div>
+            <label for="patientName">Patient Name:</label>
+            @Html.TextBoxFor(m => m.Fullname, new { id = "patientName" })
+            @Html.ValidationMessageFor(m => m.Fullname)
+        </div>
+        <div>
+            <label for="patientName">Username:</label>
+            @Html.TextBoxFor(m => m.Username, new { id = "patientName" })
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+
+        <div>
+            <label for="appointmentDate">Appointment Date:</label>
+            @Html.TextBoxFor(m => m.AppointmentDate, new { id = "appointmentDate", type = "date" })
+            @Html.ValidationMessageFor(m => m.AppointmentDate)
+        </div>
+
+        <div>
+            <label for="appointmentTime">Appointment Time:</label>
+            @Html.TextBoxFor(m => m.AppointmentTime, new { id = "appointmentTime", type = "time" })
+            @Html.ValidationMessageFor(m => m.AppointmentTime)
+        </div>
+
+        <input type="submit" value="Book Appointment" />
+    }
+
+</body>
+
+</html>
+

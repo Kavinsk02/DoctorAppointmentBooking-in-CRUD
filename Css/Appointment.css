@@ -1,0 +1,33 @@
+﻿table {
+    background-color: #808080;
+    border-collapse: collapse;
+    width: 85%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 4px solid #000;
+}
+
+/* Styling for the table header */
+th {
+    background-color: #0094ff;
+    color: white;
+}
+
+/* Styling for table rows */
+tr:nth-child(even) {
+    background-color: #808080;
+}
+
+/* Styling for table rows on hover */
+tr:hover {
+    background-color: #0b4461;
+}
+
+/* Styling for action link */
+.action-link {
+    color: blue;
+    text-decoration: none;
+}

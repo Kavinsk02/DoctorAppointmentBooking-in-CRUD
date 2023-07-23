@@ -1,0 +1,19 @@
+﻿@model int?
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Dashboard</h2>
+
+<div>
+    @if (Model.HasValue)
+    {
+        <p>Today's Appointment Count: @Model</p>
+    }
+    else
+    {
+        <p>No appointments found for today.</p>
+    }
+</div>
